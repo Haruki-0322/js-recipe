@@ -15,9 +15,13 @@
 
       const display = document.getElementById("display")
       const button = document.getElementById("button")
-      button.onclick = function () {
-        display.textContent = "クリックされた！！"
+      let count = 0
+
+      button.onclick = function() {
+      count += 1
+      display.textContent = count
       }
+     
     </script>
   </body>
 </html>
