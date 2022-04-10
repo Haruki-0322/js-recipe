@@ -24,3 +24,5 @@ button.onclick = function() {
     button.textContent = "start"
   }
 }
+// button.onclickだとボタンを話す瞬間に発動するため正確なタイムが図りづらい。
+// 正確に測るためにはmousedown(押した瞬間に発動する)が向いている。
