@@ -1,6 +1,13 @@
-const inputElement = document.getElementById("input-todo")
-const container = document.getElementById("cards-container")
-const addButton = document.getElementById("add-button")
+
+const inputElement = document.getElementById("input-todo1")
+const inputElement2 = document.getElementById("input-todo2")
+const inputElement3 = document.getElementById("input-todo3")
+const container = document.getElementById("cards-container1")
+const container2 = document.getElementById("cards-container2")
+const container3 = document.getElementById("cards-container3")
+const addButton = document.getElementById("add-button1")
+const addButton2 = document.getElementById("add-button2")
+const addButton3 = document.getElementById("add-button3")
 
 // 追加ボタンを押したときの処理を登録
 // addButton.onclick = function() {
@@ -38,10 +45,8 @@ const addButton = document.getElementById("add-button")
 
 
 // ↓コードを意味のある単位でまとめる
-
-
-  // 追加ボタンを押したときの処理を登録
-addButton.onclick = function() {
+// 追加ボタンを押したときの処理を登録
+  addButton.onclick = function() {
     // カードを作成する
     // createCard(text)のtext部分をinputelement.valueとしている
     const card = createCard(inputElement.value)
@@ -51,7 +56,28 @@ addButton.onclick = function() {
     inputElement.value = ""
 }
 
-  // 共通の処理：テキストからカードを作成する
+addButton2.onclick = function() {
+  // カードを作成する
+  // createCard(text)のtext部分をinputelement.valueとしている
+  const card = createCard(inputElement.value)
+  container2.append(card)
+
+  // 入力欄を空にする
+  inputElement2.value = ""
+}
+
+addButton3.onclick = function() {
+  // カードを作成する
+  // createCard(text)のtext部分をinputelement.valueとしている
+  const card = createCard(inputElement.value)
+  container3.append(card)
+
+  // 入力欄を空にする
+  inputElement3.value = ""
+}
+ 
+
+// 共通の処理：テキストからカードを作成する
   const createCard = function(text) {
     // カードの枠を作る
     const card = document.createElement("div")
@@ -78,5 +104,41 @@ addButton.onclick = function() {
   }
 
 
+// ↓発展１エンターキー
+  inputElement.onkeydown = function(e) {
+    if (e.keyCode === 13) {
+      // カードを作成する
+      // createCard(text)のtext部分をinputelement.valueとしている
+      const card = createCard(inputElement.value)
+      container.append(card)
+    
+      // 入力欄を空にする
+      inputElement.value = ""
+    } return false;
+  }
+
+  inputElement2.addEventListener("keydown", function(e) {
+    if (e.key =='Enter') {
+      // カードを作成する
+      // createCard(text)のtext部分をinputelement.valueとしている
+      const card = createCard(inputElement2.value)
+      container2.append(card)
+    
+      // 入力欄を空にする
+      inputElement2.value = ""
+    } return false;
+  })
+
+  inputElement3.addEventListener("keydown", function(e) {
+    if (e.key =='Enter') {
+      // カードを作成する
+      // createCard(text)のtext部分をinputelement.valueとしている
+      const card = createCard(inputElement3.value)
+      container3.append(card)
+    
+      // 入力欄を空にする
+      inputElement3.value = ""
+    } return false;
+  })
 
   
