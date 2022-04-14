@@ -1,9 +1,11 @@
-const choice1 = document.getElementById("choice-1")
-const choice2 = document.getElementById("choice-2")
-const choice3 = document.getElementById("choice-3")
+// const choice1 = document.getElementById("choice-1")
+// const choice2 = document.getElementById("choice-2")
+// const choice3 = document.getElementById("choice-3")
+// const choice4 = document.getElementById("choice-4")
 const feedback = document.getElementById("feedback")
 const quizText = document.getElementById("quiz-text")
 const quizImage = document.getElementById("quiz-image")
+const choicesContainer = document.getElementById("choices-container")
 
 
 
@@ -110,27 +112,43 @@ const quizImage = document.getElementById("quiz-image")
 // ↓クイズの内容と表示の処理を分ける
 // クイズの内容
 const quiz = {
-    text: "この星の名前は何でしょう？",
-    image: "./images/Ganymede.jpg",
+    text: "このスタンドは誰のでしょう？",
+    image: "./images/purple-haze.png",
     choices: [
       {
-        text: "ゴリアテ",
+        text: "パンナコッタ・フーゴ",
         feedback:
-          "残念！ゴリアテは、旧約聖書に登場するダビデに石で殺される巨人だよ。",
+          "正解！フーゴは「パープルヘイズ」というスタンドを有するブチャラティチームのブレーンだよ！",
       },
       {
-        text: "ゼニガメ",
-        feedback: "残念！ゼニガメは、クサガメまたはニホンイシガメの幼体だよ。",
+        text: "トニオ・トラサルディ",
+        feedback: "残念！トニオは「パールジャム」というスタンドを持っている杜王町の料理人だよ！",
       },
       {
-        text: "ガニメデ",
-        feedback: "正解！ガニメデは、木星の第三惑星だよ！",
+        text: "小林玉美",
+        feedback: "残念！玉美は康一君の舎弟だよ！",
+      },
+      {
+        text: "ディオ・ブランドー",
+        feedback: "残念！ディオはジョナサン・ジョースターの宿敵だよ！",
       },
     ],
   }
+
+
+  const choice1 = document.createElement("button")
+  const choice2 = document.createElement("button")
+  const choice3 = document.createElement("button")
+  const choice4 = document.createElement("button")
+
   
   // quiz を画面に表示する関数
   const reloadQuiz = function() {
+    
+    choicesContainer.append(choice1)
+    choicesContainer.append(choice2)
+    choicesContainer.append(choice3)
+    choicesContainer.append(choice4)
     // 問題文を表示
     quizText.textContent = "Q. " + quiz.text
   
@@ -141,6 +159,7 @@ const quiz = {
     choice1.textContent = quiz.choices[0].text
     choice2.textContent = quiz.choices[1].text
     choice3.textContent = quiz.choices[2].text
+    choice4.textContent = quiz.choices[3].text
   }
   
   // choiceNumber番目の選択肢を選択
@@ -160,6 +179,10 @@ const quiz = {
   choice3.onclick = function() {
     // 2 番目の選択肢を選択
     choose(2)
+  }
+  choice4.onclick = function() {
+    // ３番目の選択肢を選択
+    choose(3)
   }
   
   // reloadQuiz関数 を実行して、クイズを画面に表示する
