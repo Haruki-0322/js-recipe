@@ -144,11 +144,8 @@ const quiz = {
   
   // quiz を画面に表示する関数
   const reloadQuiz = function() {
-    
-    choicesContainer.append(choice1)
-    choicesContainer.append(choice2)
-    choicesContainer.append(choice3)
-    choicesContainer.append(choice4)
+
+    choicesContainer.append(choice1, choice2, choice3, choice4)
     // 問題文を表示
     quizText.textContent = "Q. " + quiz.text
   
